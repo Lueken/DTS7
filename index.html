@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drive to Survive S7 Countdown</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Barlow:wght@300;400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
             --red: #e10600;
@@ -18,11 +15,7 @@
             --accent: #c8aa6e;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: var(--dark);
@@ -42,12 +35,14 @@
             position: fixed;
             inset: 0;
             background:
-                repeating-linear-gradient(90deg,
-                    transparent,
-                    transparent 120px,
-                    rgba(255, 255, 255, 0.012) 120px,
-                    rgba(255, 255, 255, 0.012) 121px),
-                radial-gradient(ellipse at 50% 50%, #1a0a0a 0%, #0a0a0a 70%);
+                    repeating-linear-gradient(
+                            90deg,
+                            transparent,
+                            transparent 120px,
+                            rgba(255,255,255,0.012) 120px,
+                            rgba(255,255,255,0.012) 121px
+                    ),
+                    radial-gradient(ellipse at 50% 50%, #1a0a0a 0%, #0a0a0a 70%);
             z-index: 0;
         }
 
@@ -61,29 +56,16 @@
         .line {
             position: absolute;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(225,6,0,0.3), transparent);
             animation: speed linear infinite;
             opacity: 0;
         }
 
         @keyframes speed {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 1;
-            }
-
-            90% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(200vw);
-                opacity: 0;
-            }
+            0%   { transform: translateX(-100%); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { transform: translateX(200vw); opacity: 0; }
         }
 
         .container {
@@ -144,7 +126,7 @@
             font-size: clamp(0.9rem, 2.5vw, 1.2rem);
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: rgba(245, 245, 245, 0.45);
+            color: rgba(245,245,245,0.45);
             margin-top: 1rem;
             margin-bottom: 4rem;
             opacity: 0;
@@ -205,7 +187,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(10, 10, 10, 0.5) 0%, transparent 40%, transparent 60%, rgba(10, 10, 10, 0.5) 100%);
+            background: linear-gradient(180deg, rgba(10,10,10,0.5) 0%, transparent 40%, transparent 60%, rgba(10,10,10,0.5) 100%);
             z-index: 3;
         }
 
@@ -226,25 +208,10 @@
         }
 
         @keyframes numFlip {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-
-            40% {
-                transform: translateY(-8px) scale(0.95);
-                opacity: 0.3;
-            }
-
-            60% {
-                transform: translateY(8px) scale(0.95);
-                opacity: 0.3;
-            }
-
-            100% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
+            0%   { transform: translateY(0) scale(1); opacity: 1; }
+            40%  { transform: translateY(-8px) scale(0.95); opacity: 0.3; }
+            60%  { transform: translateY(8px) scale(0.95); opacity: 0.3; }
+            100% { transform: translateY(0) scale(1); opacity: 1; }
         }
 
         .label {
@@ -253,7 +220,7 @@
             font-size: clamp(0.55rem, 1.5vw, 0.75rem);
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: rgba(245, 245, 245, 0.35);
+            color: rgba(245,245,245,0.35);
         }
 
         /* Separator */
@@ -274,7 +241,7 @@
             font-size: clamp(0.8rem, 2vw, 1rem);
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: rgba(245, 245, 245, 0.3);
+            color: rgba(245,245,245,0.3);
             opacity: 0;
             animation: fadeUp 0.8s ease 1.3s forwards;
         }
@@ -296,135 +263,188 @@
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.6;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
         }
 
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem 1rem;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .netflix-tag {
+                font-size: 0.6rem;
+                letter-spacing: 0.25em;
+                margin-bottom: 1rem;
+            }
+
+            .season-badge {
+                font-size: 0.6rem;
+                letter-spacing: 0.25em;
+                padding: 0.2rem 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.8rem;
+                letter-spacing: 0.15em;
+                margin-bottom: 2rem;
+            }
+
+            .stripe {
+                margin-bottom: 2rem;
+            }
+
+            .countdown {
+                gap: 0.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .num-wrap {
+                width: clamp(62px, 20vw, 80px);
+                height: clamp(72px, 22vw, 90px);
+            }
+
+            .num {
+                font-size: clamp(2.5rem, 10vw, 3.5rem);
+            }
+
+            .sep {
+                font-size: clamp(1.5rem, 7vw, 2.5rem);
+                margin-bottom: 1.6rem;
+            }
+
+            .label {
+                font-size: 0.6rem;
+                letter-spacing: 0.15em;
+            }
+
+            .drop-date {
+                font-size: 0.7rem;
+                letter-spacing: 0.15em;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .countdown {
+                gap: 0.3rem;
+            }
+
+            .num-wrap {
+                width: 58px;
+                height: 68px;
+            }
+
+            .num {
+                font-size: 2.2rem;
+            }
+
+            .sep {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
-
 <body>
 
-    <div class="bg"></div>
-    <div class="speed-lines" id="lines"></div>
+<div class="bg"></div>
+<div class="speed-lines" id="lines"></div>
 
-    <div class="container">
-        <div class="netflix-tag">Netflix Original Series</div>
-        <div class="season-badge">Season 7 &nbsp;·&nbsp; Formula 1</div>
+<div class="container">
+    <div class="netflix-tag">Netflix Original Series</div>
+    <div class="season-badge">Season 7 &nbsp;·&nbsp; Formula 1</div>
 
-        <h1>Drive<span>to Survive</span></h1>
-        <p class="subtitle">Countdown to drop</p>
-        <div class="stripe"></div>
+    <h1>Drive<span>to Survive</span></h1>
+    <p class="subtitle">Countdown to drop</p>
+    <div class="stripe"></div>
 
-        <div class="countdown" id="countdown">
-            <div class="unit">
-                <div class="num-wrap">
-                    <div class="num" id="days">00</div>
-                </div>
-                <div class="label">Days</div>
-            </div>
-            <div class="sep">:</div>
-            <div class="unit">
-                <div class="num-wrap">
-                    <div class="num" id="hours">00</div>
-                </div>
-                <div class="label">Hours</div>
-            </div>
-            <div class="sep">:</div>
-            <div class="unit">
-                <div class="num-wrap">
-                    <div class="num" id="mins">00</div>
-                </div>
-                <div class="label">Minutes</div>
-            </div>
-            <div class="sep">:</div>
-            <div class="unit">
-                <div class="num-wrap">
-                    <div class="num" id="secs">00</div>
-                </div>
-                <div class="label">Seconds</div>
-            </div>
+    <div class="countdown" id="countdown">
+        <div class="unit">
+            <div class="num-wrap"><div class="num" id="days">00</div></div>
+            <div class="label">Days</div>
         </div>
-
-        <div class="drop-date">Drops <strong>Friday, February 28, 2026</strong> on Netflix</div>
+        <div class="sep">:</div>
+        <div class="unit">
+            <div class="num-wrap"><div class="num" id="hours">00</div></div>
+            <div class="label">Hours</div>
+        </div>
+        <div class="sep">:</div>
+        <div class="unit">
+            <div class="num-wrap"><div class="num" id="mins">00</div></div>
+            <div class="label">Minutes</div>
+        </div>
+        <div class="sep">:</div>
+        <div class="unit">
+            <div class="num-wrap"><div class="num" id="secs">00</div></div>
+            <div class="label">Seconds</div>
+        </div>
     </div>
 
-    <script>
-        // Speed lines
-        const linesEl = document.getElementById('lines');
-        for (let i = 0; i < 20; i++) {
-            const l = document.createElement('div');
-            l.className = 'line';
-            const w = 80 + Math.random() * 200;
-            l.style.cssText = `
+    <div class="drop-date">Drops <strong>Friday, February 28, 2026</strong> on Netflix</div>
+</div>
+
+<script>
+    // Speed lines
+    const linesEl = document.getElementById('lines');
+    for (let i = 0; i < 20; i++) {
+        const l = document.createElement('div');
+        l.className = 'line';
+        const w = 80 + Math.random() * 200;
+        l.style.cssText = `
       top: ${Math.random() * 100}%;
       width: ${w}px;
       animation-duration: ${2 + Math.random() * 4}s;
       animation-delay: ${Math.random() * 5}s;
     `;
-            linesEl.appendChild(l);
+        linesEl.appendChild(l);
+    }
+
+    // Countdown target: Feb 28, 2026 midnight Pacific (Netflix drops at midnight PT)
+    const target = new Date('2026-02-28T08:00:00Z'); // midnight PT = 8am UTC
+
+    const dEl = document.getElementById('days');
+    const hEl = document.getElementById('hours');
+    const mEl = document.getElementById('mins');
+    const sEl = document.getElementById('secs');
+
+    let prev = { d: '', h: '', m: '', s: '' };
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function flip(el, val) {
+        el.classList.remove('flip');
+        void el.offsetWidth;
+        el.textContent = val;
+        el.classList.add('flip');
+    }
+
+    function tick() {
+        const now = new Date();
+        const diff = target - now;
+
+        if (diff <= 0) {
+            document.getElementById('countdown').innerHTML = '<p class="finished">It\'s here. Start watching.</p>';
+            return;
         }
 
-        // Countdown target: Feb 28, 2026 midnight Pacific (Netflix drops at midnight PT)
-        const target = new Date('2026-02-28T08:00:00Z'); // midnight PT = 8am UTC
+        const d = pad(Math.floor(diff / 864e5));
+        const h = pad(Math.floor((diff % 864e5) / 36e5));
+        const m = pad(Math.floor((diff % 36e5) / 6e4));
+        const s = pad(Math.floor((diff % 6e4) / 1e3));
 
-        const dEl = document.getElementById('days');
-        const hEl = document.getElementById('hours');
-        const mEl = document.getElementById('mins');
-        const sEl = document.getElementById('secs');
+        if (d !== prev.d) { flip(dEl, d); prev.d = d; }
+        if (h !== prev.h) { flip(hEl, h); prev.h = h; }
+        if (m !== prev.m) { flip(mEl, m); prev.m = m; }
+        if (s !== prev.s) { flip(sEl, s); prev.s = s; }
+    }
 
-        let prev = { d: '', h: '', m: '', s: '' };
-
-        function pad(n) { return String(n).padStart(2, '0'); }
-
-        function flip(el, val) {
-            el.classList.remove('flip');
-            void el.offsetWidth;
-            el.textContent = val;
-            el.classList.add('flip');
-        }
-
-        function tick() {
-            const now = new Date();
-            const diff = target - now;
-
-            if (diff <= 0) {
-                document.getElementById('countdown').innerHTML = '<p class="finished">It\'s here. Start watching.</p>';
-                return;
-            }
-
-            const d = pad(Math.floor(diff / 864e5));
-            const h = pad(Math.floor((diff % 864e5) / 36e5));
-            const m = pad(Math.floor((diff % 36e5) / 6e4));
-            const s = pad(Math.floor((diff % 6e4) / 1e3));
-
-            if (d !== prev.d) { flip(dEl, d); prev.d = d; }
-            if (h !== prev.h) { flip(hEl, h); prev.h = h; }
-            if (m !== prev.m) { flip(mEl, m); prev.m = m; }
-            if (s !== prev.s) { flip(sEl, s); prev.s = s; }
-        }
-
-        tick();
-        setInterval(tick, 1000);
-    </script>
+    tick();
+    setInterval(tick, 1000);
+</script>
 </body>
-
 </html>
